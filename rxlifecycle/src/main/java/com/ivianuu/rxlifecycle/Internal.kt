@@ -34,6 +34,12 @@ internal val onNextStub: (Any) -> Unit = {}
 internal val onErrorStub: (Throwable) -> Unit =
     { RxJavaPlugins.onError(OnErrorNotImplementedException(it)) }
 
+internal fun Lifecycle.Event.checkValidEvent() {
+    if (this == Lifecycle.Event.ON_ANY) {
+        throw IllegalArgumentException("ON_ANY is not a valid event.")
+    }
+}
+
 internal fun Lifecycle.testValidState() {
     if (RxLifecyclePlugins.throwOnEndedLifecycles
             && currentState == Lifecycle.State.DESTROYED) {

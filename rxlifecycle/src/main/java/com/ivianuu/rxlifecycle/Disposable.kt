@@ -28,6 +28,7 @@ fun Disposable.disposedWith(
     owner: LifecycleOwner,
     event: Lifecycle.Event = owner.lifecycle.defaultDisposeEvent()
 ) = apply {
+    event.checkValidEvent()
     owner.lifecycle.testValidState()
     owner.lifecycle.addObserver(object : GenericLifecycleObserver {
         override fun onStateChanged(source: LifecycleOwner, e: Lifecycle.Event) {

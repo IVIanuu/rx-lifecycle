@@ -34,9 +34,7 @@ object RxLifecyclePlugins {
      */
     var defaultDisposeEvent: Lifecycle.Event? = null
         set(value) {
-            if (value == Lifecycle.Event.ON_ANY) {
-                throw IllegalArgumentException("ON_ANY is no valid option.")
-            }
+            value?.checkValidEvent()
             field = value
         }
 
