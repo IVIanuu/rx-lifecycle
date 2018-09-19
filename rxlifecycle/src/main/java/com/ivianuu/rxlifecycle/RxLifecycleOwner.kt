@@ -16,7 +16,6 @@
 
 package com.ivianuu.rxlifecycle
 
-import androidx.lifecycle.GenericLifecycleObserver
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleOwner
 import io.reactivex.Completable
@@ -32,14 +31,14 @@ import io.reactivex.disposables.Disposable
 interface RxLifecycleOwner : LifecycleOwner {
 
     /**
-     * Disposes this disposable when the [event] occurs
+     * Calls trough [Disposable.disposedWith]
      */
     fun Disposable.disposedWith(
         event: Lifecycle.Event = lifecycle.defaultDisposeEvent()
     ) = disposedWith(this@RxLifecycleOwner, event)
 
     /**
-     * Subscribes to the [this], disposes on [event] and observes on the main thread
+     * Calls trough [Disposable.disposedWith]
      */
     fun Completable.subscribeUi(
         event: Lifecycle.Event = lifecycle.defaultDisposeEvent(),
@@ -48,7 +47,7 @@ interface RxLifecycleOwner : LifecycleOwner {
     ) = subscribeUi(this@RxLifecycleOwner, event, onError, onComplete)
 
     /**
-     * Subscribes to the [this], disposes on [event] and observes on the main thread
+     * Calls trough [Disposable.disposedWith]
      */
     fun <T : Any> Flowable<T>.subscribeUi(
         event: Lifecycle.Event = lifecycle.defaultDisposeEvent(),
@@ -58,7 +57,7 @@ interface RxLifecycleOwner : LifecycleOwner {
     ) = subscribeUi(this@RxLifecycleOwner, event, onError, onComplete, onNext)
 
     /**
-     * Subscribes to the [this], disposes on [event] and observes on the main thread
+     * Calls trough [Disposable.disposedWith]
      */
     fun <T : Any> Maybe<T>.subscribeUi(
         event: Lifecycle.Event = lifecycle.defaultDisposeEvent(),
@@ -68,7 +67,7 @@ interface RxLifecycleOwner : LifecycleOwner {
     ) = subscribeUi(this@RxLifecycleOwner, event, onError, onComplete, onSuccess)
 
     /**
-     * Subscribes to the [this], disposes on [event] and observes on the main thread
+     * Calls trough [Disposable.disposedWith]
      */
     fun <T : Any> Observable<T>.subscribeUi(
         event: Lifecycle.Event = lifecycle.defaultDisposeEvent(),
@@ -78,7 +77,7 @@ interface RxLifecycleOwner : LifecycleOwner {
     ) = subscribeUi(this@RxLifecycleOwner, event, onError, onComplete, onNext)
 
     /**
-     * Subscribes to the [this], disposes on [event] and observes on the main thread
+     * Calls trough [Disposable.disposedWith]
      */
     fun <T : Any> Single<T>.subscribeUi(
         event: Lifecycle.Event = lifecycle.defaultDisposeEvent(),

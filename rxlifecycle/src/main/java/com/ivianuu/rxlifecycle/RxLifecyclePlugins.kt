@@ -23,7 +23,7 @@ import androidx.lifecycle.Lifecycle
  */
 object RxLifecyclePlugins {
     /**
-     * Whether or not a subscribeUi call should automatically observe on the main thread
+     * Whether or not a [subscribeUi] call should automatically observe on the main thread
      */
     var observeOnMainThread = true
 

@@ -11,7 +11,6 @@ object Versions {
     const val androidGradlePlugin = "3.3.0-alpha10"
     const val androidx = "1.0.0-rc02"
     const val androidxArch = "2.0.0-rc01"
-    const val archLifecycle = ""
     const val kotlin = "1.3-M2"
     const val mavenGradle = "2.1"
     const val rxAndroid = "2.1.0"
